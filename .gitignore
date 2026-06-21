@@ -1,0 +1,7 @@
+# Windows thumbnail databases
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Log files
+*.log

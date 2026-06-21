@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Forge &amp; Zinc - Planchas de Zinc Industriales de Máxima Resistencia</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@400;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed-dim": "#ffb693",
+                        "primary": "#33373a",
+                        "on-tertiary-fixed-variant": "#7a3000",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#74777a",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#474647",
+                        "surface-dim": "#dadada",
+                        "surface": "#f9f9f9",
+                        "primary-fixed": "#e0e3e6",
+                        "secondary-container": "#e2dfe0",
+                        "primary-container": "#4a4e51",
+                        "on-surface-variant": "#44474a",
+                        "on-secondary-fixed": "#1b1b1c",
+                        "on-primary-container": "#bcbfc3",
+                        "tertiary-fixed": "#ffdbcb",
+                        "surface-container-low": "#f3f3f4",
+                        "secondary": "#5f5e5f",
+                        "outline-variant": "#c4c7c9",
+                        "on-primary-fixed": "#181c1f",
+                        "secondary-fixed-dim": "#c8c6c7",
+                        "on-tertiary-container": "#ffab82",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-container": "#eeeeee",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#341000",
+                        "inverse-surface": "#2f3131",
+                        "on-secondary-container": "#636263",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#c3c7ca",
+                        "surface-bright": "#f9f9f9",
+                        "secondary-fixed": "#e5e2e3",
+                        "on-error": "#ffffff",
+                        "background": "#f9f9f9",
+                        "surface-variant": "#e2e2e2",
+                        "primary-fixed-dim": "#c3c7ca",
+                        "surface-tint": "#5b5f62",
+                        "on-primary-fixed-variant": "#43474a",
+                        "on-surface": "#1a1c1c",
+                        "tertiary-container": "#853500",
+                        "on-background": "#1a1c1c",
+                        "inverse-on-surface": "#f0f1f1",
+                        "tertiary": "#602500"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "margin-mobile": "20px",
+                        "sm": "16px",
+                        "md": "24px",
+                        "gutter": "24px",
+                        "lg": "48px",
+                        "xs": "8px",
+                        "xl": "80px",
+                        "margin-desktop": "64px",
+                        "base": "4px"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-lg": ["Montserrat"],
+                        "display-lg": ["Montserrat"]
+                    },
+                    fontSize: {
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "700" }],
+                        "headline-lg-mobile": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+                        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "label-sm": ["12px", { lineHeight: "1.0", letterSpacing: "0.05em", fontWeight: "500" }],
+                        "headline-lg": ["40px", { lineHeight: "1.2", fontWeight: "700" }],
+                        "display-lg": ["56px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f9f9f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a4e51;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #853500;
+        }
+
+        /* Ambient Shadows */
+        .shadow-heavy {
+            box-shadow: 0px 4px 0px 0px rgba(26, 26, 27, 0.1);
+        }
+        
+        /* Utility classes for specific UI requirements */
+        .text-accent { color: #FF6B1A; }
+        .bg-accent { background-color: #FF6B1A; }
+        .bg-accent-darker { background-color: #E55A12; }
+        .bg-dark-steel { background-color: #1E2228; }
+        .border-technical { border: 1px solid rgba(74, 78, 81, 0.2); }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-tertiary-container selection:text-on-tertiary">
+<!-- HEADER fijo -->
+<header class="fixed top-0 w-full z-50 border-b border-outline/20 bg-surface/95 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined fill text-tertiary-container" style="font-variation-settings: 'FILL' 1;">architecture</span>
+                Forge &amp; Zinc
+            </div>
+<nav class="hidden md:flex gap-md items-center">
+<a class="text-tertiary-container font-bold border-b-2 border-tertiary-container pb-1 text-label-sm font-label-sm uppercase" href="#productos">Productos</a>
+<a class="text-secondary hover:text-tertiary-container transition-colors duration-200 text-label-sm font-label-sm uppercase" href="#proyectos">Proyectos</a>
+<a class="text-secondary hover:text-tertiary-container transition-colors duration-200 text-label-sm font-label-sm uppercase" href="#calculadora">Calculadora</a>
+<a class="text-secondary hover:text-tertiary-container transition-colors duration-200 text-label-sm font-label-sm uppercase" href="#nosotros">Nosotros</a>
+<a class="text-secondary hover:text-tertiary-container transition-colors duration-200 text-label-sm font-label-sm uppercase" href="#contacto">Contacto</a>
+</nav>
+<div class="flex items-center gap-sm">
+<a aria-label="WhatsApp" class="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-highest text-primary hover:bg-tertiary-fixed-dim transition-colors" href="#">
+<span class="material-symbols-outlined">chat</span>
+</a>
+<a class="hidden md:inline-flex bg-accent hover:bg-accent-darker text-white font-label-sm text-label-sm px-6 py-3 rounded uppercase tracking-wider transition-colors" href="#cotizar">
+                    Cotizar Ahora
+                </a>
+<button class="md:hidden text-on-surface p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-20">
+<!-- 2. HERO -->
+<section class="relative min-h-[921px] flex items-center justify-center bg-primary" id="inicio">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/40 z-10"></div>
+<div class="bg-cover bg-center w-full h-full" data-alt="A striking architectural photograph of a modern residential home featuring a highly detailed, newly installed industrial zinc roof. The lighting is dramatic, highlighting the precise corrugations and the stark metallic gray of the zinc sheets against a clear blue sky. The aesthetic is industrial modernism, conveying durability and high-end construction quality. Taken during the golden hour with sharp contrast." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDg5A5fFniYxk2x6VwsN3PP8Dfn6SEGepqQ3gSmkUc2WZS4qbpaqBozd7X_U4pJA9Id0R_274ybmB4yHnlfr4WGExEpOSKVOQ36PsgBgLUCVm0fp7OBZRboYBoMysYHiQO-hVUK7po4FFBIRRpeySHj1rIwcaQS7IBnjtw2s7qFMCMb6rk26IFJWhFobBo2VxvCBdqg68ZOOF9F5iitDkl-9oZZk7gy-fHSx-o9eceVnZEczwGGGADK4sgeW43xJNIU0w77yf6-D84')"></div>
+</div>
+<div class="relative z-10 w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-xl">
+<div class="max-w-2xl">
+<span class="inline-block bg-primary-container text-on-primary font-label-sm text-label-sm px-3 py-1 rounded-sm mb-6 border border-outline/30 uppercase tracking-widest">Grado Industrial</span>
+<div class="inline-flex items-center gap-2 bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm px-3 py-1 rounded-sm mb-4 border border-accent/30 uppercase tracking-wider"><span class="material-symbols-outlined text-sm">local_shipping</span> Despacho desde Villarrica a toda la Región de la Araucanía y el sur de Chile</div><h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-primary mb-6">Planchas de Zinc de Máxima Resistencia para tu Proyecto</h1>
+<p class="font-body-lg text-body-lg text-surface-container-high mb-8 max-w-xl">
+                        Fabricadas para soportar condiciones extremas. Ingeniería de precisión y durabilidad garantizada para arquitectos, contratistas y clientes exigentes que buscan calidad inquebrantable.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 mb-12">
+<a class="inline-flex justify-center items-center gap-2 bg-accent hover:bg-accent-darker text-white font-label-sm text-label-sm px-8 py-4 rounded uppercase tracking-wider transition-colors shadow-heavy" href="#contacto">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+                            Cotizar por WhatsApp
+                        </a>
+<a class="inline-flex justify-center items-center gap-2 bg-transparent text-white border-2 border-white/30 hover:border-white font-label-sm text-label-sm px-8 py-4 rounded uppercase tracking-wider transition-colors" href="#productos">
+                            Ver catálogo
+                        </a>
+</div>
+</div>
+</div>
+<!-- Trust Bar -->
+<div class="absolute bottom-0 w-full bg-surface/95 backdrop-blur-md border-t border-outline/20">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-6">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent text-3xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface">Garantía 20 años</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent text-3xl" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface">Entrega en 24h</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent text-3xl" style="font-variation-settings: 'FILL' 1;">architecture</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface">+5.000 m² instalados</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent text-3xl" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface">Certificación ISO 9001</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 1. ¿POR QUÉ ELEGIRNOS? -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">¿POR QUÉ ELEGIRNOS?</h2>
+<p class="text-body-lg text-on-surface-variant max-w-2xl mx-auto">Nuestra experiencia y compromiso con la calidad nos distinguen en el mercado chileno.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant hover:border-accent transition-colors duration-300 text-center flex flex-col items-center">
+<div class="w-16 h-16 bg-surface-container-high rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-accent text-3xl">shield</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Resistencia Anticorrosiva</h3>
+<p class="text-body-md text-on-surface-variant">Protección superior contra la humedad y el clima extremo de todo Chile.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant hover:border-accent transition-colors duration-300 text-center flex flex-col items-center">
+<div class="w-16 h-16 bg-surface-container-high rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-accent text-3xl">payments</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Precios de Fábrica</h3>
+<p class="text-body-md text-on-surface-variant">Cotiza directamente con el fabricante y obtén los mejores valores del mercado.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant hover:border-accent transition-colors duration-300 text-center flex flex-col items-center">
+<div class="w-16 h-16 bg-surface-container-high rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-accent text-3xl">support_agent</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Asesoría Técnica Gratuita</h3>
+<p class="text-body-md text-on-surface-variant">Nuestros expertos te guían en la elección del material ideal para tu proyecto.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant hover:border-accent transition-colors duration-300 text-center flex flex-col items-center">
+<div class="w-16 h-16 bg-surface-container-high rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-accent text-3xl">local_shipping</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Despacho a Todo Chile</h3>
+<p class="text-body-md text-on-surface-variant">Logística eficiente para que tus materiales lleguen a tiempo a cualquier región.</p>
+</div>
+</div>
+</section>
+<!-- 2. CATÁLOGO DE PRODUCTOS -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-surface-container-lowest border-y border-outline/10" id="productos">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Nuestras Planchas de Zinc</h2>
+<p class="text-body-lg text-on-surface-variant max-w-2xl mx-auto">Conoce nuestra variedad de perfiles diseñados para diferentes necesidades de techumbre.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="bg-surface border border-outline/20 rounded-lg overflow-hidden group hover:-translate-y-1 hover:shadow-heavy transition-all duration-300">
+<div class="h-48 bg-surface-container-highest relative overflow-hidden">
+<img alt="Plancha Ondulada" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlMCnrHWxJe8sLBYts_DaF2VM0tWvaqex2-XxFK64Ehnm-3WoCdu1-v8jpacZ-lefvQxCSm8o1vWKfwcnm63TlzvCBXa7Y2GTnso20rQNe6jI12IF2UPV5m1ZXLxVxM4QRV792dcdaFkHgvQD53JY57q7jjuCAjKkyuB_j2Bb8YDTOHrw_1HqU0JJxvaq1_3Wfu1kGFkucilOoTtiLr9beX429qxCE77gNoIk2MpbZW0fX85jFA8CiEVWmOqrM7fBS1qwo8S3D8co"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Ondulada</h3>
+<p class="text-body-md text-on-surface-variant mb-4">Espesores: 0.30mm a 0.50mm</p>
+<p class="font-bold text-on-surface mb-6">Desde $3.500 el m2</p>
+<button class="w-full border-2 border-accent text-accent hover:bg-accent hover:text-white font-label-sm text-label-sm px-4 py-2 rounded uppercase tracking-wider transition-colors">Ver detalle</button>
+</div>
+</div>
+<div class="bg-surface border border-outline/20 rounded-lg overflow-hidden group hover:-translate-y-1 hover:shadow-heavy transition-all duration-300">
+<div class="h-48 bg-surface-container-highest relative overflow-hidden">
+<img alt="Plancha Acanalada" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnHFqg1fmJn4S7jiwdYhZiuEKm0odxXhKSe2KrdxWYVNWvuKGfw25JzRTwdq17MHs36hRttOj-RazfnwjWopXhkeppaI5zijP6axhqkSQY0Z8bx-rD1dtSEgcczjk0Xp7gnsKfKq_5BqG58AYpWlkxzcGI42sP7bUL8YsAeD-aBTdJxJILG9W4MRz-nZxGly_elMon5DMgWN-W_Hp_ncnjrbKNQhmV3AvheChPuOS-uqISoX7gYL5hJAeIuc3sT3Jx87x6ZX9NsSw"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Acanalada</h3>
+<p class="text-body-md text-on-surface-variant mb-4">Espesores: 0.35mm a 0.60mm</p>
+<p class="font-bold text-on-surface mb-6">Desde $4.200 el m2</p>
+<button class="w-full border-2 border-accent text-accent hover:bg-accent hover:text-white font-label-sm text-label-sm px-4 py-2 rounded uppercase tracking-wider transition-colors">Ver detalle</button>
+</div>
+</div>
+<div class="bg-surface border border-outline/20 rounded-lg overflow-hidden group hover:-translate-y-1 hover:shadow-heavy transition-all duration-300">
+<div class="h-48 bg-surface-container-highest relative overflow-hidden">
+<img alt="Plancha Prepintada" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6cm5ZuB2LF30CcsAHdmLuMMbCljLPA_JQvFAONUehIGoxalpjts1J4biY1qMp5JLcuqOZd7V1K48tmfJDta9IQesbqtwjJEmFo7Wr2sxmu1zWIXWkOiFTymesIcPjEbOb9q5cqY2W126eWgFaZzueI1s0Td-nNij5fIqXtxRbyoPEPiuDKUoq5q5Reo9RGLVwFcKkImzMeJcs3DTiwgANH1I64BvXyDeR-iKj4FImMXp4Mbf-6Y1_pJmqgUJD1kt8KazMZztGKqc"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Prepintada</h3>
+<p class="text-body-md text-on-surface-variant mb-4">Espesores: 0.40mm a 0.80mm</p>
+<p class="font-bold text-on-surface mb-6">Desde $5.800 el m2</p>
+<button class="w-full border-2 border-accent text-accent hover:bg-accent hover:text-white font-label-sm text-label-sm px-4 py-2 rounded uppercase tracking-wider transition-colors">Ver detalle</button>
+</div>
+</div>
+<div class="bg-surface border border-outline/20 rounded-lg overflow-hidden group hover:-translate-y-1 hover:shadow-heavy transition-all duration-300">
+<div class="h-48 bg-surface-container-highest relative overflow-hidden">
+<img alt="Plancha Galvanizada" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5C4nCHUq3-XE2A-CoFvkSg2-aMwCpOC1njjckAnsYa_tGMdi7TPUPwqs-AQ2FMB0EoEn4td8Ye7q0yGvqlJdpgqCci9qkhYiKOox30E0sSNSQZzXjoFIuT0B-dCCFL3wVqYs69Qny7WW7ydhclHR9bB2OqarYK5f9IAV7ydlAH4sWGN4kfQ_A8M0IWbhUWWPG7AaMpXcRnnIytnoP992hgrd9wMJ5jhF0trBTAI1LWVi4Ux05ootRmWkkEDCCHg_4F2dB_nUUNE4"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Galvanizada</h3>
+<p class="text-body-md text-on-surface-variant mb-4">Espesores: 0.30mm a 0.80mm</p>
+<p class="font-bold text-on-surface mb-6">Desde $4.900 el m2</p>
+<button class="w-full border-2 border-accent text-accent hover:bg-accent hover:text-white font-label-sm text-label-sm px-4 py-2 rounded uppercase tracking-wider transition-colors">Ver detalle</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. CALCULADORA INTERACTIVA -->
+<section class="py-xl bg-primary px-margin-mobile md:px-margin-desktop" id="calculadora">
+<div class="max-w-4xl mx-auto">
+<div class="text-center mb-10">
+<h2 class="font-headline-lg text-headline-lg text-white mb-4">Calcula tu Cotización al Instante</h2>
+<p class="text-body-lg text-surface-container-low max-w-2xl mx-auto">Ingresa los metros cuadrados de tu proyecto y obtén un valor estimado de inmediato.</p>
+</div>
+<div class="bg-surface p-8 rounded-lg shadow-heavy max-w-2xl mx-auto text-on-surface">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md mb-6">
+<div>
+<label class="block font-label-sm text-label-sm uppercase text-on-surface mb-2" for="producto-select">Tipo de Plancha</label>
+<select class="w-full border-outline-variant rounded px-4 py-3 text-on-surface bg-white focus:ring-accent focus:border-accent" id="producto-select">
+<option value="ondulada" data-precio="3500">Ondulada ($3.500 / m²)</option>
+<option value="acanalada" data-precio="4200">Acanalada ($4.200 / m²)</option>
+<option value="prepintada" data-precio="5800">Prepintada ($5.800 / m²)</option>
+<option value="galvanizada" data-precio="4900">Galvanizada ($4.900 / m²)</option>
+</select>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm uppercase text-on-surface mb-2" for="m2-input">Metros Cuadrados (m²)</label>
+<input class="w-full border-outline-variant rounded px-4 py-3 text-on-surface focus:ring-accent focus:border-accent" id="m2-input" min="1" placeholder="Ej: 150" type="number" value="150"/>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded mb-8 border border-outline/10 space-y-3 text-left">
+<div class="flex justify-between text-body-md text-on-surface-variant">
+<span>Planchas Estimadas (aprox. 3m² c/u):</span>
+<span id="planchas-count" class="font-bold">50</span>
+</div>
+<div class="flex justify-between text-body-md text-on-surface-variant">
+<span>Precio Unitario:</span>
+<span id="precio-unitario" class="font-bold">$3.500 / m²</span>
+</div>
+<div class="flex justify-between text-body-md text-on-surface-variant">
+<span>Subtotal:</span>
+<span id="calc-subtotal" class="font-bold">$525.000</span>
+</div>
+<div id="descuento-row" class="flex justify-between text-body-md text-accent hidden">
+<span>Descuento Especial (10% sobre 100 planchas):</span>
+<span id="calc-descuento" class="font-bold">-$52.500</span>
+</div>
+<hr class="border-outline/20"/>
+<div class="flex justify-between items-center">
+<p class="text-body-md text-on-surface-variant">Valor Estimado Total</p>
+<p class="font-headline-lg text-headline-lg text-on-surface font-bold" id="calc-total">$525.000</p>
+</div>
+</div>
+<a href="https://wa.me/56912345678" target="_blank" id="whatsapp-calc-btn" class="w-full bg-accent hover:bg-accent-darker text-white font-label-sm text-label-sm px-6 py-4 rounded uppercase tracking-wider transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">chat</span>
+                    Enviar Cotización por WhatsApp
+</a>
+</div>
+</div>
+</section>
+<!-- 4. GALERÍA DE PROYECTOS -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto" id="proyectos">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Proyectos Realizados</h2>
+<p class="text-body-lg text-on-surface-variant max-w-2xl mx-auto">Revisa algunas de las instalaciones realizadas con nuestros materiales en distintas ciudades.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<div class="relative h-64 group overflow-hidden rounded-lg"><img alt="Casa Moderna en Villarrica" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRoiikV-GW-qTNa1q6cV6cHdiZEQQfztaX38aUccoykYxEc7Ja3BUtL5dersNGOpQsQWiMVMDGNgLvG4tHSk-kaFXpgYAqImx22GK-nKzulqxCex7I0VnG9fObtIQwZM0AkZS6Mv8o69BY5skh8HTsTELDdMLuQsPvQN1wb48sJlpiuqvOkbwTW-hYEdBU-Pzh1o--O7EiEeP68wZUbvYv_S99_70wmA5y2xL5KtTFfJ1VwSCOyLah2cHPwbx_cHogkIFFZkAfCYA"/><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"><h3 class="text-white font-headline-md text-headline-md">Casa Moderna</h3><p class="text-white/80 text-label-sm">Villarrica</p></div></div>
+<div class="relative h-64 group overflow-hidden rounded-lg"><img alt="Galpón Industrial en Temuco" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzR0Yr89DYBTgcjiO5Hhavbb2Y7tjWPz2BRHDIoXb_etmXSgyF7MCIxPpytgQshd-sHjrAmsj6XVP_cR1BVIXyl3L4QuhRBhEJ7ZHAMeEgcGySE6eiOZ2YEBOfivMb99L3iuoHYY2TuMcQu8O70A6-JtqIzwjf-AYWKIhf235yPwmKy5viEVvCK4TVxNBndJNHGxothLw-c5czTSwrgYvl_tbPF3zAn5UcCs1--DUVQFTrPT19MB6-2GxBFZJV-nkY1fahojWbwp8"/><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"><h3 class="text-white font-headline-md text-headline-md">Galpón Industrial</h3><p class="text-white/80 text-label-sm">Temuco</p></div></div>
+<div class="relative h-64 group overflow-hidden rounded-lg"><img alt="Cabaña de Montaña en Pucón" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKPi-SnUH6hIBvy0BJi7amWxnJ49NTjTYxkLsgV4_xBKEnB5m0LxcyCN2B_XfE6E1xXDtoPSeZgMdxSmMPXNtwzg1f-YuqNx3w7HLGxo_Rt6iJ53CfAD94SmM9pqM07-U7RhN2pW01qtOpcHEpwxCzaXNEJ5Tz455Zxm23HW8cdbkFh7kg9rF_BIOmViPuDDY7siNy_IH36kkPWarrjw4aTmnILZ20q1CeioDpkLgvkLZeb70Edu2FkbgqySAwWPRkwTRuBIPS3T8"/><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"><h3 class="text-white font-headline-md text-headline-md">Cabaña de Montaña</h3><p class="text-white/80 text-label-sm">Pucón</p></div></div>
+<div class="relative h-64 group overflow-hidden rounded-lg"><img alt="Bodega Agrícola en Loncoche" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPdZ5Xc_Y01D2Xb0-MkIBSREh8DFGYgRFLwBR2yqSMwcwjfxZusbBoClh5Rjl3xjk2TtbIby-lPS0h-vCK9At0bkGgFC4nru8W8IBhqQuuN6cLzyQdA1MAKSX_HgZKrxGpSkQMlFPJ8HeNK-ipzBfU8dEb7qqQhDgb8t0AR4Z_gg-f5qQqG7FFJhesHa4W6NfsAUvG5vQK8FHufoCCyjySBG8g539JRRBTBoSkQtInXOz0z8AhsasodXMqvYRxo_pEDpc_HO7B3hY"/><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"><h3 class="text-white font-headline-md text-headline-md">Bodega Agrícola</h3><p class="text-white/80 text-label-sm">Loncoche</p></div></div>
+<div class="relative h-64 group overflow-hidden rounded-lg"><img alt="Vivienda Contemporánea en Valdivia" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp5AjyEv3jBXBcvbN8TXn7iw6XnRpCJ8o_jYYPLxa5Tqt__6l3lprN9eSbiYghEDHp5D05VpWj0L1NyvrxwVp6NR9nObuZKW4zSdLz0W5qc9xfuwYJhrG4XCSdOa4GKuAisa_Hn3ksduTEdVf7D5n4zfmzLKOTsmPbpt_MJLp3nmJMil_lDiRl26gt9rJFp8588afe_tAlgOor5PdSoFP0FBc9f5e2DOaNjtRvfoPTQQBTKigFyK0TtwCRSXkF5jtRFP5MUGkFQbI"/><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"><h3 class="text-white font-headline-md text-headline-md">Vivienda Contemporánea</h3><p class="text-white/80 text-label-sm">Valdivia</p></div></div>
+<div class="relative h-64 group overflow-hidden rounded-lg"><img alt="Techo Residencial en Panguipulli" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRoiikV-GW-qTNa1q6cV6cHdiZEQQfztaX38aUccoykYxEc7Ja3BUtL5dersNGOpQsQWiMVMDGNgLvG4tHSk-kaFXpgYAqImx22GK-nKzulqxCex7I0VnG9fObtIQwZM0AkZS6Mv8o69BY5skh8HTsTELDdMLuQsPvQN1wb48sJlpiuqvOkbwTW-hYEdBU-Pzh1o--O7EiEeP68wZUbvYv_S99_70wmA5y2xL5KtTFfJ1VwSCOyLah2cHPwbx_cHogkIFFZkAfCYA"/><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"><h3 class="text-white font-headline-md text-headline-md">Techo Residencial</h3><p class="text-white/80 text-label-sm">Panguipulli</p></div></div>
+</div>
+</section>
+<!-- 5. TESTIMONIOS -->
+<section class="py-xl bg-surface-container-low px-margin-mobile md:px-margin-desktop border-y border-outline/10">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Lo Que Dicen Nuestros Clientes</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface p-8 rounded-lg shadow-sm border border-outline/10 relative mt-8">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2">
+<img alt="Cliente" class="w-16 h-16 rounded-full border-4 border-surface object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNkiLImzBTuJ4SEFHtEAHM_k_Lx2FQNnUyVPtlHOcgxrILa7Ju1exRtuffRmAU8BDjBBwG6K_VSGOsXt50Efvz0WgABo2bL_g3WKiPRwuY4JSK8Dv6NbazIX6NiDflycnpaYzm2k44MgX6BptM5Z4RbT-sYuM6vTF4O3MLjs3Jr3AbPr_mCHiX3eVZqkMcebTIDcJ1Uh_0o_ulrLVbcTzkm71-30IsJ5lRMI-vYnvlww-Qf9CV9U1oJwF5mtNOQpWBdGeeTsyTgCg"/>
+</div>
+<div class="text-center mt-6">
+<h4 class="font-headline-md text-[18px] text-on-surface mb-1">Carlos Mendoza</h4>
+<p class="text-label-sm font-label-sm text-accent uppercase mb-4">Constructora Andes</p>
+<div class="flex justify-center text-[#F59E0B] mb-4">
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+</div>
+<p class="text-body-md text-on-surface-variant italic">"Excelente calidad en planchas galvanizadas. Cumplieron con los plazos y la atención fue de primera."</p>
+</div>
+</div>
+<div class="bg-surface p-8 rounded-lg shadow-sm border border-outline/10 relative mt-8">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2">
+<img alt="Cliente" class="w-16 h-16 rounded-full border-4 border-surface object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXPdpjlFvVQrV2NH_7Zy_rZFUlCdFOyp57MzZM0Wr11Kt9XQIq0BQvqQKrBJlE2seYBkO0n37SVNEfDMbSgW33BXYM8HIdSRZtUWtfu5vQdmwIUNM1_08qynyQgHUiVlT7KUdnajkybecBm9dtgOcqEudqLZL9jdPKLt0CJ-qsJBC8b53Dyzg2W21aUwkn57fR03wtUIPHQRu6hR61AC_oH3eqrDdYyeU8lAYUFEZt1PkmPlD9VFq_rRdtFCONMxXDYiFl7LaHoTM"/>
+</div>
+<div class="text-center mt-6">
+<h4 class="font-headline-md text-[18px] text-on-surface mb-1">María José Soto</h4>
+<p class="text-label-sm font-label-sm text-accent uppercase mb-4">Arquitectura Sur</p>
+<div class="flex justify-center text-[#F59E0B] mb-4">
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+</div>
+<p class="text-body-md text-on-surface-variant italic">"Los mejores precios del mercado sin sacrificar calidad. Totalmente recomendados para proyectos grandes."</p>
+</div>
+</div>
+<div class="bg-surface p-8 rounded-lg shadow-sm border border-outline/10 relative mt-8">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2">
+<img alt="Cliente" class="w-16 h-16 rounded-full border-4 border-surface object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcAi75DqizIL--SRgltVX2q1-fJxwWkYgebwkpiX7h7SvZ6cSG_dLV5eET0VfBzw8PEkURcoqqBF6J-VZg4yPeq_4RY-6NoI6PYeBxQhxVDMgehyNWXPGyRpHg2vSJYMspD_suty9Y5bYqnqG96zzpRItaTVv7JYxQWJnzH9DB0iIt7JLo7mb_vmL0VZd8fFaitaMqU10VWyts76iisXxmMv0BcM-rrjrpbXv94LK3KTUesgDLvMz6EQW56twcQxGSQv2azuGKkwg"/>
+</div>
+<div class="text-center mt-6">
+<h4 class="font-headline-md text-[18px] text-on-surface mb-1">Roberto Arancibia</h4>
+<p class="text-label-sm font-label-sm text-accent uppercase mb-4">Independiente</p>
+<div class="flex justify-center text-[#F59E0B] mb-4">
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+<span class="material-symbols-outlined fill">star</span>
+</div>
+<p class="text-body-md text-on-surface-variant italic">"Asesoría técnica muy completa. Me ayudaron a elegir el espesor correcto para el techo de mi bodega."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. PROCESO DE COMPRA -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">¿Cómo Funciona?</h2>
+<p class="text-body-lg text-on-surface-variant max-w-2xl mx-auto">Un proceso simple y transparente de principio a fin.</p>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-start relative">
+<!-- Line connecting steps (desktop) -->
+<div class="hidden md:block absolute top-8 left-10 right-10 h-0.5 bg-outline/20 -z-10"></div>
+<div class="flex-1 flex flex-col items-center text-center px-4 mb-8 md:mb-0 relative">
+<div class="w-16 h-16 bg-accent text-white rounded-full flex items-center justify-center font-headline-md text-xl mb-4 relative shadow-md">
+                1
+            </div>
+<h3 class="font-headline-md text-[20px] text-on-surface mb-2">Cotiza</h3>
+<p class="text-body-md text-on-surface-variant">Envíanos tus requerimientos por web o WhatsApp.</p>
+</div>
+<div class="flex-1 flex flex-col items-center text-center px-4 mb-8 md:mb-0 relative">
+<div class="w-16 h-16 bg-surface border-2 border-accent text-accent rounded-full flex items-center justify-center font-headline-md text-xl mb-4 relative shadow-sm bg-white">
+                2
+            </div>
+<h3 class="font-headline-md text-[20px] text-on-surface mb-2">Confirma</h3>
+<p class="text-body-md text-on-surface-variant">Revisa tu cotización formal y realiza el pago seguro.</p>
+</div>
+<div class="flex-1 flex flex-col items-center text-center px-4 mb-8 md:mb-0 relative">
+<div class="w-16 h-16 bg-surface border-2 border-accent text-accent rounded-full flex items-center justify-center font-headline-md text-xl mb-4 relative shadow-sm bg-white">
+                3
+            </div>
+<h3 class="font-headline-md text-[20px] text-on-surface mb-2">Preparamos</h3>
+<p class="text-body-md text-on-surface-variant">Fabricamos o preparamos tu pedido en bodega.</p>
+</div>
+<div class="flex-1 flex flex-col items-center text-center px-4 relative">
+<div class="w-16 h-16 bg-surface border-2 border-accent text-accent rounded-full flex items-center justify-center font-headline-md text-xl mb-4 relative shadow-sm bg-white">
+                4
+            </div>
+<h3 class="font-headline-md text-[20px] text-on-surface mb-2">Entregamos</h3>
+<p class="text-body-md text-on-surface-variant">Despachamos a tu obra o retiras en nuestra planta.</p>
+</div>
+</div>
+</section>
+<!-- 7. BANNER DE PROMOCIÓN -->
+<section class="py-12 bg-accent px-margin-mobile md:px-margin-desktop">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-6">
+<div>
+<h2 class="font-headline-md text-headline-md text-white mb-2">10% de Descuento en Compras Sobre 100 Planchas Este Mes</h2>
+<p class="text-white/80 font-body-md text-body-md">Válido para perfiles ondulados y acanalados. Términos y condiciones aplican.</p>
+</div>
+<a class="inline-flex bg-white text-accent hover:bg-surface-container-lowest font-label-sm text-label-sm px-8 py-4 rounded uppercase tracking-wider transition-colors shadow-md whitespace-nowrap" href="#contacto">
+            Aprovechar Oferta
+        </a>
+</div>
+</section>
+<!-- 8. PREGUNTAS FRECUENTES Y FORMULARIO FINAL -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-xl" id="contacto">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-8">Preguntas Frecuentes</h2>
+<div class="space-y-4">
+<details class="group bg-surface-container-lowest border border-outline/20 rounded-lg open:shadow-sm">
+<summary class="flex justify-between items-center font-headline-md text-[18px] cursor-pointer list-none p-6 text-on-surface">
+<span>¿Cuál es el espesor recomendado para techumbres habitacionales?</span>
+<span class="transition group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<div class="text-on-surface-variant text-body-md px-6 pb-6 pt-0">
+                    Para uso habitacional recomendamos espesores entre 0.35mm y 0.40mm para un balance óptimo entre resistencia y costo.
+                </div>
+</details>
+<details class="group bg-surface-container-lowest border border-outline/20 rounded-lg open:shadow-sm">
+<summary class="flex justify-between items-center font-headline-md text-[18px] cursor-pointer list-none p-6 text-on-surface">
+<span>¿Hacen despachos a regiones?</span>
+<span class="transition group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<div class="text-on-surface-variant text-body-md px-6 pb-6 pt-0">
+                    Sí, contamos con red logística para despachar a todo Chile continental. Los costos varían según volumen y destino.
+                </div>
+</details>
+<details class="group bg-surface-container-lowest border border-outline/20 rounded-lg open:shadow-sm">
+<summary class="flex justify-between items-center font-headline-md text-[18px] cursor-pointer list-none p-6 text-on-surface">
+<span>¿Incluyen los tornillos y fijaciones?</span>
+<span class="transition group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<div class="text-on-surface-variant text-body-md px-6 pb-6 pt-0">
+                    Se cotizan por separado. Contamos con todos los accesorios necesarios (caballetes, tornillos autoperforantes, sellos) para una instalación completa.
+                </div>
+</details>
+<details class="group bg-surface-container-lowest border border-outline/20 rounded-lg open:shadow-sm">
+<summary class="flex justify-between items-center font-headline-md text-[18px] cursor-pointer list-none p-6 text-on-surface">
+<span>¿Qué garantía tienen los productos?</span>
+<span class="transition group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<div class="text-on-surface-variant text-body-md px-6 pb-6 pt-0">
+                    Todos nuestros productos cuentan con garantía legal. Además, las líneas prepintadas tienen garantía extendida contra decoloración y oxidación bajo condiciones normales.
+                </div>
+</details>
+<details class="group bg-surface-container-lowest border border-outline/20 rounded-lg open:shadow-sm">
+<summary class="flex justify-between items-center font-headline-md text-[18px] cursor-pointer list-none p-6 text-on-surface">
+<span>¿Tienen servicio de instalación?</span>
+<span class="transition group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<div class="text-on-surface-variant text-body-md px-6 pb-6 pt-0">
+                    No realizamos instalación directa, pero podemos recomendarte contratistas certificados de confianza en tu región.
+                </div>
+</details>
+</div>
+</div>
+<div class="bg-primary p-8 md:p-10 rounded-lg shadow-heavy text-white">
+<h2 class="font-headline-lg text-[32px] text-white mb-6">Solicita tu Cotización Gratis</h2>
+<form action="#" class="space-y-4" method="POST">
+<div>
+<label class="block font-label-sm text-label-sm uppercase mb-1" for="nombre">Nombre o Empresa</label>
+<input class="w-full bg-surface-container-low text-on-surface border-transparent rounded px-4 py-3 focus:ring-accent focus:border-accent" id="nombre" name="nombre" required="" type="text"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm uppercase mb-1" for="telefono">Teléfono</label>
+<input class="w-full bg-surface-container-low text-on-surface border-transparent rounded px-4 py-3 focus:ring-accent focus:border-accent" id="telefono" name="telefono" required="" type="tel"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block font-label-sm text-label-sm uppercase mb-1" for="metros">Metros Cuadrados</label>
+<input class="w-full bg-surface-container-low text-on-surface border-transparent rounded px-4 py-3 focus:ring-accent focus:border-accent" id="metros" name="metros" type="number"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm uppercase mb-1" for="comuna">Comuna</label>
+<input class="w-full bg-surface-container-low text-on-surface border-transparent rounded px-4 py-3 focus:ring-accent focus:border-accent" id="comuna" name="comuna" type="text"/>
+</div>
+</div>
+<div class="pt-4">
+<button class="w-full bg-accent hover:bg-accent-darker text-white font-label-sm text-label-sm px-6 py-4 rounded uppercase tracking-wider transition-colors shadow-md" type="submit">
+                        Enviar Solicitud
+                    </button>
+</div>
+</form>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="w-full py-xl bg-primary text-tertiary-fixed border-t border-outline/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto mb-12">
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-md text-headline-md text-surface-container-lowest flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined fill text-tertiary-container" style="font-variation-settings: 'FILL' 1;">architecture</span>
+                    Forge &amp; Zinc
+                </div>
+<p class="text-outline-variant text-body-md mb-6">
+                    Soluciones de techado industrial de alta precisión. Materiales diseñados para resistir el paso del tiempo.
+                </p>
+<div class="flex gap-4">
+<a aria-label="LinkedIn" class="text-outline-variant hover:text-surface-bright transition-colors" href="#">
+<span class="material-symbols-outlined">link</span>
+</a>
+<a aria-label="Instagram" class="text-outline-variant hover:text-surface-bright transition-colors" href="#">
+<span class="material-symbols-outlined">photo_camera</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm uppercase text-surface-container-lowest mb-4">Empresa</h4>
+<ul class="space-y-3">
+<li><a class="text-outline-variant hover:text-surface-bright hover:underline decoration-tertiary-fixed underline-offset-4 text-body-md transition-all" href="#">Sobre Nosotros</a></li>
+<li><a class="text-outline-variant hover:text-surface-bright hover:underline decoration-tertiary-fixed underline-offset-4 text-body-md transition-all" href="#">Proyectos</a></li>
+<li><a class="text-outline-variant hover:text-surface-bright hover:underline decoration-tertiary-fixed underline-offset-4 text-body-md transition-all" href="#">Certificaciones</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm uppercase text-surface-container-lowest mb-4">Recursos</h4>
+<ul class="space-y-3">
+<li><a class="text-outline-variant hover:text-surface-bright hover:underline decoration-tertiary-fixed underline-offset-4 text-body-md transition-all" href="#">Technical Specs</a></li>
+<li><a class="text-outline-variant hover:text-surface-bright hover:underline decoration-tertiary-fixed underline-offset-4 text-body-md transition-all" href="#">Maintenance Guide</a></li>
+<li><a class="text-outline-variant hover:text-surface-bright hover:underline decoration-tertiary-fixed underline-offset-4 text-body-md transition-all" href="#">Privacy Policy</a></li>
+<li><a class="text-outline-variant hover:text-surface-bright hover:underline decoration-tertiary-fixed underline-offset-4 text-body-md transition-all" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm uppercase text-surface-container-lowest mb-4">Contacto</h4>
+<ul class="space-y-3">
+<li class="flex items-start gap-2 text-outline-variant text-body-md"><span class="material-symbols-outlined text-[20px]">location_on</span> Av. Pedro de Valdivia 450, Villarrica, Chile</li>
+<li class="flex items-center gap-2 text-outline-variant text-body-md">
+<span class="material-symbols-outlined text-[20px]">call</span>
+                        +56 9 1234 5678
+                    </li>
+<li class="flex items-center gap-2 text-outline-variant text-body-md">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+                        ventas@forgeandzinc.cl
+                    </li>
+</ul>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto pt-8 border-t border-outline/20 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-md text-body-md text-outline-variant">© 2024 Forge &amp; Zinc Industrial Roofing. All rights reserved.</p>
+</div>
+</footer>
+<!-- FAB WhatsApp -->
+<a class="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] hover:bg-[#1ebe57] text-white rounded-full flex items-center justify-center shadow-lg hover:-translate-y-1 transition-transform z-50 group" href="#contacto">
+<span class="material-symbols-outlined text-3xl">chat</span>
+<span class="absolute right-full mr-4 bg-primary text-white text-xs px-3 py-2 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">Cotiza en WhatsApp</span>
+</a>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const productoSelect = document.getElementById('producto-select');
+    const m2Input = document.getElementById('m2-input');
+    const planchasCount = document.getElementById('planchas-count');
+    const precioUnitario = document.getElementById('precio-unitario');
+    const calcSubtotal = document.getElementById('calc-subtotal');
+    const descuentoRow = document.getElementById('descuento-row');
+    const calcDescuento = document.getElementById('calc-descuento');
+    const calcTotal = document.getElementById('calc-total');
+    const whatsappCalcBtn = document.getElementById('whatsapp-calc-btn');
+
+    function formatCLP(val) {
+        return '$' + Math.round(val).toLocaleString('es-CL');
+    }
+
+    function calculate() {
+        const m2 = parseFloat(m2Input.value) || 0;
+        const selectedOption = productoSelect.options[productoSelect.selectedIndex];
+        const precioM2 = parseFloat(selectedOption.getAttribute('data-precio')) || 0;
+        const productoName = selectedOption.text.split(' ')[0]; // E.g. "Ondulada"
+
+        // Estimate 3.0 m2 per sheet (plancha)
+        const sheets = Math.ceil(m2 / 3);
+        planchasCount.textContent = sheets;
+
+        precioUnitario.textContent = formatCLP(precioM2) + ' / m²';
+        
+        const subtotal = m2 * precioM2;
+        calcSubtotal.textContent = formatCLP(subtotal);
+
+        // 10% discount on Ondulada and Acanalada for > 100 sheets
+        const isEligibleForDiscount = (productoSelect.value === 'ondulada' || productoSelect.value === 'acanalada') && sheets > 100;
+        
+        let discount = 0;
+        if (isEligibleForDiscount) {
+            discount = subtotal * 0.10;
+            descuentoRow.classList.remove('hidden');
+            calcDescuento.textContent = '-' + formatCLP(discount);
+        } else {
+            descuentoRow.classList.add('hidden');
+        }
+
+        const total = subtotal - discount;
+        calcTotal.textContent = formatCLP(total);
+
+        // Update WhatsApp message
+        const baseText = `Hola Forge & Zinc! Quisiera cotizar:\n- Producto: Plancha ${productoName}\n- Área: ${m2} m² (aprox. ${sheets} planchas)\n- Valor estimado: ${formatCLP(total)}`;
+        const whatsappUrl = `https://wa.me/56912345678?text=${encodeURIComponent(baseText)}`;
+        whatsappCalcBtn.href = whatsappUrl;
+    }
+
+    productoSelect.addEventListener('change', calculate);
+    m2Input.addEventListener('input', calculate);
+
+    // Initial calculation
+    calculate();
+});
+</script>
+</body></html>
