@@ -141,28 +141,36 @@
 <header class="fixed top-0 w-full z-50 border-b border-outline/20 bg-surface/95 backdrop-blur-md shadow-sm">
 <div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
 <div class="flex items-center">
-<img src="assets/logo-light.png" alt="Zintec - Techos y Cubierta de Zinc" class="h-14 w-auto object-contain" />
+<img src="assets/logo-dark.png" alt="Zintec - Techos y Cubierta de Zinc" class="h-14 w-auto object-contain" />
             </div>
 <nav class="hidden md:flex gap-md items-center">
 <a class="text-tertiary-container font-bold border-b-2 border-tertiary-container pb-1 text-label-sm font-label-sm uppercase" href="#productos">Productos</a>
 <a class="text-secondary hover:text-tertiary-container transition-colors duration-200 text-label-sm font-label-sm uppercase" href="#proyectos">Proyectos</a>
 <a class="text-secondary hover:text-tertiary-container transition-colors duration-200 text-label-sm font-label-sm uppercase" href="#calculadora">Calculadora</a>
-<a class="text-secondary hover:text-tertiary-container transition-colors duration-200 text-label-sm font-label-sm uppercase" href="#nosotros">Nosotros</a>
 <a class="text-secondary hover:text-tertiary-container transition-colors duration-200 text-label-sm font-label-sm uppercase" href="#contacto">Contacto</a>
 </nav>
 <div class="flex items-center gap-sm">
 <a aria-label="WhatsApp" class="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-highest text-primary hover:bg-tertiary-fixed-dim transition-colors" href="https://wa.me/56958020832" target="_blank">
 <span class="material-symbols-outlined">chat</span>
 </a>
-<a class="hidden md:inline-flex bg-accent hover:bg-accent-darker text-white font-label-sm text-label-sm px-6 py-3 rounded uppercase tracking-wider transition-colors" href="#cotizar">
+<a class="hidden md:inline-flex bg-accent hover:bg-accent-darker text-white font-label-sm text-label-sm px-6 py-3 rounded uppercase tracking-wider transition-colors" href="#contacto">
                     Cotizar Ahora
                 </a>
-<button class="md:hidden text-on-surface p-2">
-<span class="material-symbols-outlined">menu</span>
+<button id="mobile-menu-btn" class="md:hidden text-on-surface p-2 focus:outline-none focus:ring-2 focus:ring-accent rounded">
+<span class="material-symbols-outlined" id="mobile-menu-icon">menu</span>
 </button>
 </div>
 </div>
 </header>
+
+<!-- Menú Móvil -->
+<div id="mobile-menu" class="fixed inset-0 top-20 z-40 bg-surface flex-col items-center pt-8 pb-8 hidden shadow-lg border-b border-outline/20 md:hidden">
+    <a class="w-full text-center py-4 font-label-sm text-label-sm uppercase hover:bg-surface-container-high transition-colors text-on-surface" href="#productos">Productos</a>
+    <a class="w-full text-center py-4 font-label-sm text-label-sm uppercase hover:bg-surface-container-high transition-colors text-on-surface" href="#proyectos">Proyectos</a>
+    <a class="w-full text-center py-4 font-label-sm text-label-sm uppercase hover:bg-surface-container-high transition-colors text-on-surface" href="#calculadora">Calculadora</a>
+    <a class="w-full text-center py-4 font-label-sm text-label-sm uppercase hover:bg-surface-container-high transition-colors text-on-surface" href="#contacto">Contacto</a>
+    <a class="mt-4 bg-accent hover:bg-accent-darker text-white font-label-sm text-label-sm px-8 py-4 rounded uppercase tracking-wider transition-colors" href="#contacto">Cotizar Ahora</a>
+</div>
 <main class="pt-20">
 <!-- 2. HERO -->
 <section class="relative min-h-[921px] flex items-center justify-center bg-primary" id="inicio">
@@ -581,7 +589,7 @@
 <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto mb-12">
 <div class="col-span-1 md:col-span-1">
 <div class="mb-4">
-<img src="assets/logo-dark.png" alt="Zintec - Techos y Cubierta de Zinc" class="h-16 w-auto object-contain" />
+<img src="assets/logo-light.png" alt="Zintec - Techos y Cubierta de Zinc" class="h-16 w-auto object-contain" />
 </div>
 <p class="text-outline-variant text-body-md mb-6">
                     Soluciones de techado industrial de alta precisión. Materiales diseñados para resistir el paso del tiempo.
@@ -693,6 +701,53 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initial calculation
     calculate();
+
+    // Mobile menu logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+    
+    if (mobileMenuBtn && mobileMenu) {
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                mobileMenuIcon.textContent = 'menu';
+            } else {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                mobileMenuIcon.textContent = 'close';
+            }
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                mobileMenuIcon.textContent = 'menu';
+            });
+        });
+    }
+
+    // Form logic enhancement
+    const contactForm = document.querySelector('form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value || '';
+            const telefono = document.getElementById('telefono').value || '';
+            const metros = document.getElementById('metros').value || '';
+            const comuna = document.getElementById('comuna').value || '';
+            
+            const text = `Hola Zintec! Soy ${nombre}. Me gustaría solicitar una cotización.\nTeléfono: ${telefono}\nMetros: ${metros} ml\nComuna: ${comuna}`;
+            const whatsappUrl = `https://wa.me/56958020832?text=${encodeURIComponent(text)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    }
 });
 </script>
 </body></html>
