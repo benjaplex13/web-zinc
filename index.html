@@ -134,6 +134,63 @@
         .bg-accent-darker { background-color: #1449E8; }
         .bg-dark-steel { background-color: #0A1628; }
         .border-technical { border: 1px solid rgba(30, 93, 255, 0.2); }
+
+        /* ===== MOBILE OPTIMIZATIONS ===== */
+        /* Smooth scrolling for iOS */
+        html {
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
+        /* Prevent horizontal overflow on mobile */
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        /* Better tap targets on mobile */
+        a, button {
+            -webkit-tap-highlight-color: rgba(30, 93, 255, 0.15);
+        }
+        /* Prevent text size adjustment on orientation change (iOS) */
+        body {
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+        /* Fix iOS input zoom on focus */
+        input, select, textarea {
+            font-size: 16px !important;
+        }
+        @media (min-width: 768px) {
+            input, select, textarea {
+                font-size: inherit !important;
+            }
+        }
+        /* Mobile hero height fix */
+        @media (max-width: 767px) {
+            #inicio {
+                min-height: 100svh !important;
+                min-height: 100vh !important;
+            }
+            /* Ensure hero text doesn't overflow */
+            #inicio h1 {
+                font-size: clamp(26px, 8vw, 40px) !important;
+            }
+            /* Trust bar stacks nicely */
+            #inicio .absolute.bottom-0 .grid {
+                gap: 12px !important;
+            }
+            /* Calculator padding on mobile */
+            #calculadora .bg-surface {
+                padding: 20px !important;
+            }
+            /* Contact form section stacks */
+            #contacto {
+                gap: 40px !important;
+            }
+            /* Footer grid spacing */
+            footer .grid {
+                gap: 32px !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased selection:bg-tertiary-container selection:text-on-tertiary">
@@ -173,7 +230,7 @@
 </div>
 <main class="pt-20">
 <!-- 2. HERO -->
-<section class="relative min-h-[921px] flex items-center justify-center bg-primary" id="inicio">
+<section class="relative min-h-[100svh] min-h-screen flex items-center justify-center bg-primary" id="inicio">
 <div class="absolute inset-0 z-0">
 <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/40 z-10"></div>
 <div class="bg-cover bg-center w-full h-full" data-alt="A striking architectural photograph of a modern residential home featuring a highly detailed, newly installed industrial zinc roof. The lighting is dramatic, highlighting the precise corrugations and the stark metallic gray of the zinc sheets against a clear blue sky. The aesthetic is industrial modernism, conveying durability and high-end construction quality. Taken during the golden hour with sharp contrast." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDg5A5fFniYxk2x6VwsN3PP8Dfn6SEGepqQ3gSmkUc2WZS4qbpaqBozd7X_U4pJA9Id0R_274ybmB4yHnlfr4WGExEpOSKVOQ36PsgBgLUCVm0fp7OBZRboYBoMysYHiQO-hVUK7po4FFBIRRpeySHj1rIwcaQS7IBnjtw2s7qFMCMb6rk26IFJWhFobBo2VxvCBdqg68ZOOF9F5iitDkl-9oZZk7gy-fHSx-o9eceVnZEczwGGGADK4sgeW43xJNIU0w77yf6-D84')"></div>
@@ -185,12 +242,12 @@
 <p class="font-body-lg text-body-lg text-surface-container-high mb-8 max-w-xl">
                         Fabricadas para soportar condiciones extremas. Ingeniería de precisión y durabilidad garantizada para arquitectos, contratistas y clientes exigentes que buscan calidad inquebrantable.
                     </p>
-<div class="flex flex-col sm:flex-row gap-4 mb-12">
-<a class="inline-flex justify-center items-center gap-2 bg-accent hover:bg-accent-darker text-white font-label-sm text-label-sm px-8 py-4 rounded uppercase tracking-wider transition-colors shadow-heavy" href="https://wa.me/56958020832?text=Hola%20Zintec!%20Quisiera%20cotizar%20planchas%20de%20zinc." target="_blank">
+<div class="flex flex-col gap-3 mb-12 w-full max-w-xs sm:max-w-none sm:flex-row sm:gap-4">
+<a class="inline-flex justify-center items-center gap-2 bg-accent hover:bg-accent-darker text-white font-label-sm text-label-sm px-6 py-4 rounded uppercase tracking-wider transition-colors shadow-heavy text-center" href="https://wa.me/56958020832?text=Hola%20Zintec!%20Quisiera%20cotizar%20planchas%20de%20zinc." target="_blank">
 <span class="material-symbols-outlined text-[18px]">chat</span>
                             Cotizar por WhatsApp
                         </a>
-<a class="inline-flex justify-center items-center gap-2 bg-transparent text-white border-2 border-white/30 hover:border-white font-label-sm text-label-sm px-8 py-4 rounded uppercase tracking-wider transition-colors" href="#productos">
+<a class="inline-flex justify-center items-center gap-2 bg-transparent text-white border-2 border-white/30 hover:border-white font-label-sm text-label-sm px-6 py-4 rounded uppercase tracking-wider transition-colors text-center" href="#productos">
                             Ver catálogo
                         </a>
 </div>
@@ -199,7 +256,7 @@
 <!-- Trust Bar -->
 <div class="absolute bottom-0 w-full bg-surface/95 backdrop-blur-md border-t border-outline/20">
 <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-6">
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
 <div class="flex items-center gap-3">
 <span class="material-symbols-outlined text-accent text-3xl" style="font-variation-settings: 'FILL' 1;">verified</span>
 <span class="font-label-sm text-label-sm uppercase text-on-surface">Garantía 20 años</span>
@@ -493,7 +550,7 @@
 </div>
 </section>
 <!-- 8. PREGUNTAS FRECUENTES Y FORMULARIO FINAL -->
-<section class="py-xl px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-xl" id="contacto">
+<section class="py-xl px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-lg lg:gap-xl" id="contacto">
 <div>
 <h2 class="font-headline-lg text-headline-lg text-on-surface mb-8">Preguntas Frecuentes</h2>
 <div class="space-y-4">
@@ -565,7 +622,7 @@
 <label class="block font-label-sm text-label-sm uppercase mb-1" for="telefono">Teléfono</label>
 <input class="w-full bg-surface-container-low text-on-surface border-transparent rounded px-4 py-3 focus:ring-accent focus:border-accent" id="telefono" name="telefono" required="" type="tel"/>
 </div>
-<div class="grid grid-cols-2 gap-4">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 <div>
 <label class="block font-label-sm text-label-sm uppercase mb-1" for="metros">Metros Lineales</label>
 <input class="w-full bg-surface-container-low text-on-surface border-transparent rounded px-4 py-3 focus:ring-accent focus:border-accent" id="metros" name="metros" type="number"/>
